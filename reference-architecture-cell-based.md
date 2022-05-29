@@ -49,24 +49,24 @@ The rest of the this paper is structured as follows:
 
 | Icon | Name | Description |
 |---------|---------|---------|
-|![Person](/media/ra-person.png )| User |A user is a human interacting with the system. Users can be external customers of the organization, internal employees, or partners.|
-|![Component](/media/ra-component.png )| Component| A **component** is the **atomic unit** of this reference architecture. A component represents a process or business logic running in a container, serverless environment, or an existing runtime. This can then be categorized into many subtypes based on the functional capabilities. A component is designed based on a specific scope, which can be independently run and reused at the runtime. Runtime requirements and the behavior of the component vary based on the component type and the functional capabilities. The user may decide to build and run the code as a service, function, or microservice, or choose to reuse an existing legacy service based on the architectural need.  |
+|![Person](media/ra-person.png )| User |A user is a human interacting with the system. Users can be external customers of the organization, internal employees, or partners.|
+|![Component](media/ra-component.png )| Component| A **component** is the **atomic unit** of this reference architecture. A component represents a process or business logic running in a container, serverless environment, or an existing runtime. This can then be categorized into many subtypes based on the functional capabilities. A component is designed based on a specific scope, which can be independently run and reused at the runtime. Runtime requirements and the behavior of the component vary based on the component type and the functional capabilities. The user may decide to build and run the code as a service, function, or microservice, or choose to reuse an existing legacy service based on the architectural need.  |
 |![Cell](media/ra-cell-icon.png)| Cell| Cell - an architecture block represents by an **octagon**.|
 
 ### Component Types: Main Categories
 
 | Icon | Category | Component |
 |---------|---------|---------|
-|![Component](/media/ra-data-service.png )|Legacy and data services|Databases, Existing systems, Registries and repositories, User stores, Business processes|
-|![Component](/media/ra-microservice.png )|Microservices and serverless components|Custom business logic, Aggregation and service composition, Transformation|
-|![Component](/media/ra-gateway.png)|Gateways and brokers|Exposed APIs, events, and streams, Policy enforcement points, Message brokers, Identity brokers and identity gateways, Sidecars and bridges|
-|![SaaS EPR](/media/ra-saas-epr.png)|External endpoint|Access using APIs, events,  and streams, Cloud systems and SaaS|
-|![Frontend Clients](/media/ra-front-end-clients.png)|Frontend clients|Mobile apps, Web apps, Portlets, Reactive apps, API consumers|
-|![Gov and Utils](/media/ra-gov-utils.png)|Governance and utilities|Registry, Observability, Automation tools, Lifecycle management|
+|![Component](media/ra-data-service.png )|Legacy and data services|Databases, Existing systems, Registries and repositories, User stores, Business processes|
+|![Component](media/ra-microservice.png )|Microservices and serverless components|Custom business logic, Aggregation and service composition, Transformation|
+|![Component](media/ra-gateway.png)|Gateways and brokers|Exposed APIs, events, and streams, Policy enforcement points, Message brokers, Identity brokers and identity gateways, Sidecars and bridges|
+|![SaaS EPR](media/ra-saas-epr.png)|External endpoint|Access using APIs, events,  and streams, Cloud systems and SaaS|
+|![Frontend Clients](media/ra-front-end-clients.png)|Frontend clients|Mobile apps, Web apps, Portlets, Reactive apps, API consumers|
+|![Gov and Utils](media/ra-gov-utils.png)|Governance and utilities|Registry, Observability, Automation tools, Lifecycle management|
 
 ## Section 2: Cell - The Units of an Enterprise Architecture
 
-![cell definition](/media/ra-cell-definition-2.2-75.png)
+![cell definition](media/ra-cell-definition-2.2-75.png)
 
 A **cell** is a **collection of components**, grouped from design and implementation into deployment. A cell is independently deployable, manageable, and observable.
 Components inside the cell can communicate with each other using supported transports for intra-cell communication. External communication must happen through the edge-gateway or proxy, which provides APIs, events, or streams via governed network endpoints using standard network protocols.
@@ -79,7 +79,7 @@ A cell can have 1:n components grouped. Components inside the cells are reusable
 
 ### Deep-Dive into Cells
 
-![cell definition](/media/ra-cell-details-2.0-60.png)
+![cell definition](media/ra-cell-details-2.0-60.png)
 
 In this example, **Cell-1** contains two microservices and a function operating with a microbroker and a microgateway to fulfill the functionality. The function is communicating with a few external services running outside the cell, and one microservice communicates with a cluster of external databases. The cell contains local storage, which is required by the microbroker. The functionality of a microservice in this cell has been extended by bringing a sidecar.
 
@@ -93,7 +93,7 @@ The concept of a cell moves away from centralized a enterprise architecture to a
 
 The cells consume the functionality of other cells using the three API types (request response, events and streams) exposed by the cell gateways.
 
-![epr types](/media/ra-gw-communication-v3-20.png)
+![epr types](media/ra-gw-communication-v3-20.png)
 
 + **Request Response** API types provide an abstraction over everything that can be **queried** or **activated**.
   
@@ -114,7 +114,7 @@ This diagram brings the data plane, control plane and the management plane conce
 |**CP**|Control Plane|Signaling of the network, makes decisions about the traffic flow, runtime governance|
 |**MP**|Management Plane|Configuration, observeabiltty, monitoring, design-time governance|
 
-![cell communication](/media/ra-cell-communication-v2.2.png)
+![cell communication](media/ra-cell-communication-v2.2.png)
 
 Components in a cell are required to communicate with each other in a seamless way, which we call intra-cell communication. Cells in a system architecture are required to communicate with each other through the edge-gateway, which we call inter-cell communication. As a result, a control-plane and a data-plane operate inside each cell along with a common control-plane, data-plane and management-plane outside the cells.
 
@@ -122,7 +122,7 @@ Communication planes inside a cell are called the **local mesh** and the communi
 
 #### Governance of Cell-Based Architecture
 
-![cell governance](/media/ra-cell-gov.png)
+![cell governance](media/ra-cell-gov.png)
 
 The gateway is the control point for a cell-based architecture, which provides a well-defined interface to a subset of APIs, events, and streams. In this pattern, the gateway becomes the only access point (endpoint) for the cell. As a result, the gateway acts as a policy enforcement point, an observability touchpoint, and an enabler for governance frameworks. Additionally, the gateway pattern helps to implement architectures that comply with domain-specific technology or business standards.
 
@@ -194,7 +194,7 @@ One of the objectives of building a modern reference architecture is to enable a
 
 ### Evolution of the Cell-Based Architecture: Emerging Architectural Patterns
 
-![evolution of architecture](/media/ra-evolution.png)
+![evolution of architecture](media/ra-evolution.png)
 
 Most enterprises follow a layered architecture with both service-oriented architecture (SOA) principles and microservice architecture (MSA) concepts by grouping the services or microservices into a single layer in the overall enterprise architecture. This approach makes each architecture layer a logically centralized set of shared components that eventually becomes another silo. 
 
@@ -204,7 +204,7 @@ First, we discussed a segmented architecture, which is created by dividing the l
 
 ### Cell-Based Architecture: Enterprise View
 
-![cell-based ea](/media/ra-cell-based-ea-v2.0.png)
+![cell-based ea](media/ra-cell-based-ea-v2.0.png)
 
 As we discussed  earlier, cell-based architecture goes beyond the traditional layered architecture and creates a framework for decentralization.  Cells can be categorized into a few subcategories based on the architecture patterns used, the implementation, and the provider.
 
@@ -224,7 +224,7 @@ The first level of categorization is based on the provider. Cells owned by inter
 
 ### Mapping an Agile Enterprise to the Real-World: An Order Management System Reference Implementation
 
-![epr types](/media/ra-cell-rw-l0.png)
+![epr types](media/ra-cell-rw-l0.png)
 
 The diagram above represents a real-world example using the cell-based architecture. For reference purposes, we have only captured a portion of the entire architecture. This architecture follows the fundamentals of cell-based architecture and is divided into multiple cells. Each cell contains different components for building the expected functionality.
 
@@ -285,7 +285,7 @@ The promotions cell exposes the functionality using a streaming endpoint and let
 
 APIs can comprehend as the products of the 21st century. For many millennia, human trade was mostly directly between the producers and consumers of products. Furthermore, APIs enable connecting businesses and exchange transactions. Technical APIs are too granular hence exposing a collection of APIs as application developer-friendly managed APIs make application developers productive. Grouping a set of managed APIs providing a business functionality makes the application developer productivity further. The grouping of managed APIs call API products and cells provides an excellent framework to develop, manage, and expose API products by classifying a set of components.
 
-![API products](/media/ra-api-product-10.png)
+![API products](media/ra-api-product-10.png)
 
 #### Reference implementations 
 
